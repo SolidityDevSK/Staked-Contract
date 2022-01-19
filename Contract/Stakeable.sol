@@ -36,7 +36,6 @@ contract Stakeable{
 //uint256 statusTime = block.timestamp - countStake[msg.sender][_index].since; , (stakingTime - statusTime)
     function _withdrawStake(address _add, uint256 _index, uint256 stakingTimeValue, uint256 _stakingReward) internal{
         require(ownStaked[msg.sender]>0, "No withdrawable staking");
-	require(ownStaked[msg.sender]>=0, "No withdrawable staking");
         stakingSince = countStake[msg.sender][_index].since;
         require(stakingSince + stakingTime * stakingTimeValue <= block.timestamp, "Stake time isn't over yet");
         (,stakingReward) = calculateStakeAward(_add, _index, _stakingReward);
