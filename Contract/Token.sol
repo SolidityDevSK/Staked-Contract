@@ -12,8 +12,7 @@ import 'Context.sol';
 import 'Ownable.sol';
 import 'Stakeable.sol';
 
-// 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4
-// 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2
+
 
 contract DuzenlemeContract is Context, ERC20, Ownable, Stakeable {
 
@@ -65,15 +64,15 @@ contract DuzenlemeContract is Context, ERC20, Ownable, Stakeable {
 
     constructor () ERC20(tokenName, tokenSymbol, tokenDecimals) {
         
-        stakingWallet = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4;
-        burnWallet = 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2;
+        stakingWallet = 0x....;
+        burnWallet = 0x...;
         _mint(msg.sender, tokenTotalSupply/2);
         _mint(burnWallet, tokenTotalSupply/2);
         isExcludedFromFee[stakingWallet] = true;
         isExcludedFromFee[burnWallet] = true;
         isExcludedFromFee[msg.sender] = true;
         
-        _uniswapV2Router = IUniswapV2Router02(0x9Ac64Cc6e4415144C455BD8E4837Fea55603e5c3); 
+        _uniswapV2Router = IUniswapV2Router02(RouterAd); 
 
         // Create a uniswap pair for this new token
         uniswapV2Pair = IUniswapV2Factory(_uniswapV2Router.factory())
